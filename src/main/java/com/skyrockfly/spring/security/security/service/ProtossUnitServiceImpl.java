@@ -32,16 +32,6 @@ public class ProtossUnitServiceImpl implements ProtossUnitService{
     }
 
     @Override
-    public ProtossUnitDto findById(int id) {
-        return null;
-    }
-
-    @Override
-    public List<ProtossUnitDto> findByType(String type) {
-        return null;
-    }
-
-    @Override
     public List<ProtossUnitDto> findAllByUserId(int id) {
         List<ProtossUnit> list = unitRepository.findAllByUserId(id);
         return list.stream().map(unit ->mapToUnitDto(unit))

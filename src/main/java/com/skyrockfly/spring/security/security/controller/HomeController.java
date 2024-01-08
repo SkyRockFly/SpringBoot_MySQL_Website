@@ -19,11 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 @Controller
 public class HomeController {
@@ -113,7 +109,7 @@ public class HomeController {
     }
 
     @GetMapping("/users/{id}")
-    public String userPage(@ModelAttribute("user") UserDto currentUserDto, Model model, ProtossUnitDto unitDto) {
+    public String userPage(@ModelAttribute("user") UserDto currentUserDto, Model model) {
         UserDto user = getAuthenticatedUser();
         model.addAttribute("user",user);
 

@@ -6,9 +6,6 @@ import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.HashMap;
 import java.util.Map;
 
 @Getter
