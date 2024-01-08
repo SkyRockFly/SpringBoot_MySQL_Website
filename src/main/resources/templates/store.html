@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order your units</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="alert alert-primary" role="alert" th:if="${success}">You have made an order! You may continue to make orders
+or <a th:href="@{/users/{path}(path=${user.id})}">watch your orders</a></div>
+
+
+<form th:action="@{/store}" th:object="${unit}" method="post">
+    Choose your unit:
+
+    <select th:field="*{type}">
+        <option th:each="type : ${unit.types}"
+                th:value="${type}"
+                th:text="${type}"></option>
+    </select>
+    <br><br>
+
+
+    Please choose level of your upgrades(from 0 to 3)
+    <br><br>
+
+    <div th:each="upgrade : ${unit.upgrades.entrySet()}">
+        <div class="form-group">
+            <label th:for="*{upgrades['__${upgrade.key}__']}" th:text="${upgrade.key}"></label>
+            <input type="text" class="form-control" th:field="*{upgrades['__${upgrade.key}__']}"/>
+            <br><br>
+        </div>
+
+    </div>
+
+    <button type="submit">OK</button>
+    <div class="alert alert-primary" role="alert" th:if="${error}">All fields must have a number from 0 to 3</div>
+</form>
+
+
+<!--        <select th:field="*{level}">-->
+<!--            <option th:each="level : ${levels}"-->
+<!--                    th:value="${type}"-->
+<!--        </select>-->
+
+</body>
+</html>
