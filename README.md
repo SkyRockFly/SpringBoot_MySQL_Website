@@ -50,6 +50,8 @@
 --------------------------------------------------------
 
 Скрипты содержаться в MySQL Scripts:
+
 RegisterLoginTables - создание таблиц пользователей (users), ролей(roles) и таблица для связи many to many(users_roles).
-OrderTableScript - создание таблиц заказов(orders) и дополнений к заказам(upgrades)
+
+OrderTableScript - создание таблиц заказов(orders) и дополнений к заказам(upgrades).
 
